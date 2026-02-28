@@ -1,0 +1,47 @@
+{
+  "name": "@ansvar/international-cybersecurity-law-mcp",
+  "version": "0.1.0",
+  "mcpName": "eu.ansvar/international-cybersecurity-law-mcp",
+  "description": "International Cybersecurity Law MCP — treaties, norms, national strategies, export controls via Model Context Protocol",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "international-cybersecurity-law-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "data/database.db",
+    "server.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:db": "tsx scripts/build-db.ts",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "better-sqlite3": "^11.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^22.15.29",
+    "@vercel/node": "^5.6.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ansvar-Systems/international-cybersecurity-law-mcp.git"
+  },
+  "author": "Ansvar Systems AB <hello@ansvar.ai>",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
