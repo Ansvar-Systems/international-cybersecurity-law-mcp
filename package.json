@@ -18,7 +18,20 @@
     "build:db": "tsx scripts/build-db.ts",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:contract": "vitest run tests/contract/",
+    "ingest": "tsx scripts/ingest.ts",
+    "ingest:fetch": "tsx scripts/ingest-fetch.ts",
+    "ingest:diff": "tsx scripts/ingest-diff.ts",
+    "ingest:full": "npm run ingest:fetch && npm run build:db && npm run coverage:update",
+    "freshness:check": "tsx scripts/check-freshness.ts",
+    "coverage:update": "tsx scripts/update-coverage.ts",
+    "coverage:verify": "tsx scripts/verify-coverage.ts",
+    "prepublishOnly": "npm run build",
+    "validate": "npm run lint && npm test"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.3",
@@ -29,8 +42,10 @@
     "@types/better-sqlite3": "^7.6.8",
     "@types/node": "^22.15.29",
     "@vercel/node": "^5.6.6",
+    "@vitest/coverage-v8": "^4.0.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.0"
   },
   "engines": {
     "node": ">=18"

@@ -1,0 +1,175 @@
+schema_version: "1.0"
+mcp_name: "International Cybersecurity Law MCP"
+jurisdiction: "INTL"
+deployment_strategy: "Strategy A (Vercel)"
+
+sources:
+  - name: "Budapest Convention on Cybercrime (ETS 185)"
+    authority: "Council of Europe"
+    official_portal: "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=185"
+    retrieval_method: "HTML_SCRAPE"
+    update_frequency: "on_change"
+    records_estimate: "48 articles"
+    priority: "critical"
+    coverage_note: "Full text of the Convention on Cybercrime (Budapest, 2001) including all chapters and articles"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.coe.int/en/web/conventions"
+      summary: "Council of Europe treaty text is publicly available. Verify redistribution terms for bulk replication."
+    languages:
+      - "en"
+
+  - name: "UN Convention against Cybercrime (2024)"
+    authority: "United Nations Office on Drugs and Crime (UNODC)"
+    official_portal: "https://www.unodc.org/unodc/en/cybercrime/ad_hoc_committee/home"
+    retrieval_method: "PDF_EXTRACT"
+    update_frequency: "on_change"
+    records_estimate: "62 articles"
+    priority: "critical"
+    coverage_note: "Full text of the UN Convention against Cybercrime adopted December 2024"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.unodc.org"
+      summary: "United Nations official document. Public access, verify redistribution terms."
+    languages:
+      - "en"
+
+  - name: "Tallinn Manual 2.0 on International Law Applicable to Cyber Operations"
+    authority: "NATO Cooperative Cyber Defence Centre of Excellence (CCDCOE)"
+    official_portal: "https://ccdcoe.org/research/tallinn-manual/"
+    retrieval_method: "MANUAL"
+    update_frequency: "on_change"
+    records_estimate: "154 rules (summaries only)"
+    priority: "critical"
+    coverage_note: "Rule summaries only — full text is copyright Cambridge University Press (ISBN 978-1-316-63017-2)"
+    license_or_terms:
+      type: "copyrighted_summaries"
+      url: "https://www.cambridge.org/core/books/tallinn-manual-20-on-the-international-law-applicable-to-cyber-operations/E4FFD83EA790D7C4C3C28FC9CA2FB6C9"
+      summary: "Summaries provided under fair use/fair dealing. Full text requires purchase from Cambridge University Press."
+    languages:
+      - "en"
+
+  - name: "UN GGE Reports (2015, 2021)"
+    authority: "United Nations General Assembly"
+    official_portal: "https://www.un.org/disarmament/ict-security/"
+    retrieval_method: "PDF_EXTRACT"
+    update_frequency: "on_change"
+    records_estimate: "11 consensus norms + reaffirmation"
+    priority: "high"
+    coverage_note: "UN Group of Governmental Experts consensus norms on responsible state behaviour in cyberspace"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.un.org/disarmament/ict-security/"
+      summary: "United Nations official documents. Public access."
+    languages:
+      - "en"
+
+  - name: "OEWG Reports (2021, 2023)"
+    authority: "United Nations General Assembly"
+    official_portal: "https://www.un.org/disarmament/open-ended-working-group/"
+    retrieval_method: "PDF_EXTRACT"
+    update_frequency: "on_change"
+    records_estimate: "4 key outcomes"
+    priority: "high"
+    coverage_note: "Open-Ended Working Group reports on ICT security"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.un.org/disarmament/open-ended-working-group/"
+      summary: "United Nations official documents. Public access."
+    languages:
+      - "en"
+
+  - name: "Paris Call for Trust and Security in Cyberspace"
+    authority: "French Ministry for Europe and Foreign Affairs"
+    official_portal: "https://pariscall.international/en/"
+    retrieval_method: "HTML_SCRAPE"
+    update_frequency: "on_change"
+    records_estimate: "9 principles"
+    priority: "high"
+    coverage_note: "Full text of the 9 principles of the Paris Call (2018)"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://pariscall.international/en/"
+      summary: "Publicly available political declaration. Verify redistribution terms."
+    languages:
+      - "en"
+
+  - name: "NATO Cyber Defence Policy and Summit Declarations"
+    authority: "North Atlantic Treaty Organization"
+    official_portal: "https://www.nato.int/cps/en/natohq/topics_78170.htm"
+    retrieval_method: "HTML_SCRAPE"
+    update_frequency: "on_change"
+    records_estimate: "12 key provisions"
+    priority: "high"
+    coverage_note: "NATO cyber defence policy provisions from 2014-2023 summit declarations"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.nato.int"
+      summary: "NATO official communiques and summit declarations. Public access."
+    languages:
+      - "en"
+
+  - name: "EU Cyber Diplomacy Toolbox"
+    authority: "Council of the European Union"
+    official_portal: "https://www.consilium.europa.eu"
+    retrieval_method: "PDF_EXTRACT"
+    update_frequency: "on_change"
+    records_estimate: "10 framework provisions"
+    priority: "high"
+    coverage_note: "EU framework for a joint diplomatic response to malicious cyber activities (2017-2023)"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.consilium.europa.eu"
+      summary: "EU Council decisions and frameworks. Public access."
+    languages:
+      - "en"
+
+  - name: "US Executive Orders (Cybersecurity)"
+    authority: "President of the United States"
+    official_portal: "https://www.federalregister.gov"
+    retrieval_method: "HTML_SCRAPE"
+    update_frequency: "on_change"
+    records_estimate: "24 sections"
+    priority: "high"
+    coverage_note: "EO 14028 (Improving the Nation's Cybersecurity, 2021), EO 13800 (2017), and CISA Act 2018"
+    license_or_terms:
+      type: "us_government_work"
+      url: "https://www.federalregister.gov"
+      summary: "US government works are in the public domain."
+    languages:
+      - "en"
+
+  - name: "Wassenaar Arrangement — Category 5 Part 2"
+    authority: "Wassenaar Arrangement Secretariat"
+    official_portal: "https://www.wassenaar.org"
+    retrieval_method: "PDF_EXTRACT"
+    update_frequency: "annual"
+    records_estimate: "15 control items"
+    priority: "high"
+    coverage_note: "Dual-use information security controls including intrusion software, IP surveillance, and encryption"
+    license_or_terms:
+      type: "official_publication"
+      url: "https://www.wassenaar.org"
+      summary: "Wassenaar Arrangement public documents. Verify redistribution terms."
+    languages:
+      - "en"
+
+  - name: "National Cybersecurity Strategies"
+    authority: "Multiple national governments"
+    official_portal: "Various (see per-country strategy documents)"
+    retrieval_method: "MANUAL"
+    update_frequency: "on_change"
+    records_estimate: "54 country strategies"
+    priority: "high"
+    coverage_note: "Strategy names, publication dates, responsible authorities, and key objectives for 54 countries"
+    license_or_terms:
+      type: "official_publication"
+      url: "Various"
+      summary: "National government publications. Individual redistribution terms vary by country."
+    languages:
+      - "en"
+
+data_freshness:
+  automated_checks: true
+  check_frequency: "daily"
+  last_verified: "2026-02-28"

@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0",
+  "mcp_name": "International Cybersecurity Law MCP",
+  "mcp_type": "domain_intelligence",
+  "coverage_date": "2026-02-28",
+  "database_version": "0.1.0",
+  "sources": [
+    {
+      "id": "BUDAPEST",
+      "name": "Budapest Convention on Cybercrime (ETS 185)",
+      "authority": "Council of Europe",
+      "url": "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=185",
+      "version": "2026-02-28",
+      "item_count": 48,
+      "item_type": "article",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "monthly",
+      "completeness": "full",
+      "completeness_note": "Full text of all 48 articles across 4 chapters"
+    },
+    {
+      "id": "UN_CYBERCRIME",
+      "name": "UN Convention against Cybercrime (2024)",
+      "authority": "UNODC",
+      "url": "https://www.unodc.org/unodc/en/cybercrime/ad_hoc_committee/home",
+      "version": "2026-02-28",
+      "item_count": 62,
+      "item_type": "article",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "monthly",
+      "completeness": "full",
+      "completeness_note": "Full text of all 62 articles adopted December 2024"
+    },
+    {
+      "id": "TALLINN",
+      "name": "Tallinn Manual 2.0",
+      "authority": "NATO CCDCOE / Cambridge University Press",
+      "url": "https://ccdcoe.org/research/tallinn-manual/",
+      "version": "2026-02-28",
+      "item_count": 154,
+      "item_type": "rule_summary",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "on_change",
+      "completeness": "partial",
+      "completeness_note": "Rule summaries only — full text is copyrighted by Cambridge University Press"
+    },
+    {
+      "id": "GGE_NORMS",
+      "name": "UN GGE/OEWG Consensus Norms",
+      "authority": "United Nations General Assembly",
+      "url": "https://www.un.org/disarmament/ict-security/",
+      "version": "2026-02-28",
+      "item_count": 24,
+      "item_type": "norm",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "on_change",
+      "completeness": "full",
+      "completeness_note": "All 11 GGE 2015 norms, GGE 2021 reaffirmation, OEWG outcomes, and Paris Call principles"
+    },
+    {
+      "id": "POLICY",
+      "name": "NATO and EU Cyber Policy",
+      "authority": "NATO / Council of the European Union",
+      "url": "https://www.nato.int/cps/en/natohq/topics_78170.htm",
+      "version": "2026-02-28",
+      "item_count": 22,
+      "item_type": "provision",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "on_change",
+      "completeness": "partial",
+      "completeness_note": "Key provisions from NATO cyber defence policy (2014-2023) and EU Cyber Diplomacy Toolbox (2017-2023)"
+    },
+    {
+      "id": "US_EO",
+      "name": "US Cybersecurity Executive Orders and CISA Act",
+      "authority": "President of the United States / US Congress",
+      "url": "https://www.federalregister.gov",
+      "version": "2026-02-28",
+      "item_count": 24,
+      "item_type": "section",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "on_change",
+      "completeness": "partial",
+      "completeness_note": "Key sections from EO 14028, EO 13800, and CISA Act 2018"
+    },
+    {
+      "id": "WASSENAAR",
+      "name": "Wassenaar Arrangement Category 5 Part 2",
+      "authority": "Wassenaar Arrangement Secretariat",
+      "url": "https://www.wassenaar.org",
+      "version": "2026-02-28",
+      "item_count": 15,
+      "item_type": "control_item",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "annual",
+      "completeness": "partial",
+      "completeness_note": "Dual-use information security controls. Does not include full munitions list."
+    },
+    {
+      "id": "NATIONAL_STRATEGIES",
+      "name": "National Cybersecurity Strategies",
+      "authority": "Multiple national governments",
+      "url": "Various",
+      "version": "2026-02-28",
+      "item_count": 54,
+      "item_type": "strategy",
+      "last_refresh": "2026-02-28",
+      "refresh_frequency": "quarterly",
+      "completeness": "partial",
+      "completeness_note": "Strategy metadata and key objectives for 54 countries. Full text not included."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "tallinn-summaries-only",
+      "description": "Tallinn Manual 2.0 contains rule summaries, not full text",
+      "reason": "Full text is copyrighted by Cambridge University Press",
+      "impact": "medium",
+      "planned": false,
+      "target_version": null
+    },
+    {
+      "id": "strategy-metadata-only",
+      "description": "National strategies include metadata and key objectives, not full strategy text",
+      "reason": "Full strategy documents are lengthy PDFs in various languages",
+      "impact": "medium",
+      "planned": true,
+      "target_version": "0.2"
+    },
+    {
+      "id": "no-additional-protocols",
+      "description": "Budapest Convention Additional Protocols not included as separate entries",
+      "reason": "Protocol content partially covered in main convention articles",
+      "impact": "low",
+      "planned": true,
+      "target_version": "0.2"
+    },
+    {
+      "id": "limited-eu-nis2",
+      "description": "EU NIS2 Directive not included (covered by comprehensive-eu-law-mcp)",
+      "reason": "Scope limited to international treaties and norms, not EU directives",
+      "impact": "low",
+      "planned": false,
+      "target_version": null
+    },
+    {
+      "id": "wassenaar-partial",
+      "description": "Only Category 5 Part 2 of Wassenaar Arrangement included",
+      "reason": "Other categories less relevant to cybersecurity",
+      "impact": "low",
+      "planned": false,
+      "target_version": null
+    }
+  ],
+  "tools": [
+    { "name": "search_cybersecurity_law", "category": "search", "description": "FTS5 search across all treaty articles, manual rules, and policy provisions", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "GGE_NORMS", "POLICY", "US_EO", "WASSENAAR"], "verified": true },
+    { "name": "get_treaty_article", "category": "lookup", "description": "Retrieve a specific article from a treaty by source ID and article number", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "POLICY", "US_EO"], "verified": true },
+    { "name": "get_treaty", "category": "lookup", "description": "Get treaty metadata with article count and chapter breakdown", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "GGE_NORMS", "POLICY", "US_EO", "WASSENAAR"], "verified": true },
+    { "name": "get_national_cyber_strategy", "category": "lookup", "description": "Get a national cybersecurity strategy by country code or name", "data_sources": ["NATIONAL_STRATEGIES"], "verified": true },
+    { "name": "compare_national_strategies", "category": "analysis", "description": "Compare cybersecurity strategies of multiple countries", "data_sources": ["NATIONAL_STRATEGIES"], "verified": true },
+    { "name": "get_incident_reporting_requirements", "category": "search", "description": "Search for incident reporting obligations across treaties", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "POLICY", "US_EO"], "verified": true },
+    { "name": "get_attribution_framework", "category": "analysis", "description": "Get state attribution rules from Tallinn Manual and related sources", "data_sources": ["TALLINN", "GGE_NORMS"], "verified": true },
+    { "name": "map_cyber_norms", "category": "lookup", "description": "Get international cyber norms by category", "data_sources": ["GGE_NORMS"], "verified": true },
+    { "name": "get_export_controls", "category": "lookup", "description": "Search export control regimes by item or category", "data_sources": ["WASSENAAR"], "verified": true },
+    { "name": "build_legal_stance", "category": "analysis", "description": "Aggregate provisions across all sources for a cybersecurity law question", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "GGE_NORMS", "POLICY", "US_EO", "WASSENAAR", "NATIONAL_STRATEGIES"], "verified": true },
+    { "name": "validate_citation", "category": "meta", "description": "Validate a citation to a specific treaty article", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "POLICY", "US_EO"], "verified": true },
+    { "name": "list_sources", "category": "meta", "description": "List all data sources with provenance metadata and record counts", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "GGE_NORMS", "POLICY", "US_EO", "WASSENAAR", "NATIONAL_STRATEGIES"], "verified": true },
+    { "name": "about", "category": "meta", "description": "Server metadata, data coverage, and disclaimer", "data_sources": [], "verified": true },
+    { "name": "check_data_freshness", "category": "meta", "description": "Check database build date, schema version, and record counts", "data_sources": ["BUDAPEST", "UN_CYBERCRIME", "TALLINN", "GGE_NORMS", "POLICY", "US_EO", "WASSENAAR", "NATIONAL_STRATEGIES"], "verified": true }
+  ],
+  "summary": {
+    "total_tools": 14,
+    "total_sources": 13,
+    "total_items": 380,
+    "db_size_kb": 432,
+    "known_gaps": 5,
+    "gaps_planned": 2
+  }
+}
