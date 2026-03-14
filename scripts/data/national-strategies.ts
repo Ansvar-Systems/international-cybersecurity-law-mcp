@@ -1,4 +1,4 @@
-// National Cybersecurity Strategies for 54 countries
+// National Cybersecurity Strategies for 55 countries/entities (incl. EU)
 import type Database from 'better-sqlite3';
 
 export function seedNationalStrategies(db: Database.Database): void {
@@ -67,6 +67,8 @@ export function seedNationalStrategies(db: Database.Database): void {
     { cc: 'TH', name: 'Thailand', strategy: 'National Cybersecurity Strategy 2022-2027', date: '2022-01-01', ver: '2022', objectives: ['Protect critical information infrastructure', 'Build national cyber capacity', 'Counter cybercrime and threats', 'Develop workforce and education', 'Regional and international cooperation'], authority: 'National Cyber Security Agency (NCSA Thailand) / ThaiCERT', budget: null, url: 'https://www.ncsa.or.th/' },
     { cc: 'VN', name: 'Vietnam', strategy: 'National Cybersecurity Strategy to 2025', date: '2022-01-01', ver: '2022', objectives: ['Protect national cyberspace sovereignty', 'Secure digital transformation', 'Counter cyber threats and crime', 'Develop human resources', 'International cooperation'], authority: 'Authority of Information Security (AIS) / VNCERT/CC', budget: null, url: 'https://www.vncert.vn/' },
     { cc: 'PH', name: 'Philippines', strategy: 'National Cybersecurity Plan 2022', date: '2022-01-01', ver: '2022', objectives: ['Protect critical infostructure', 'Secure government networks', 'Combat cybercrime', 'Develop cybersecurity workforce', 'International engagement'], authority: 'Department of Information and Communications Technology (DICT) / CERT-PH', budget: null, url: 'https://dict.gov.ph/' },
+    // Supranational — EU is not a country but agents frequently cite it
+    { cc: 'EU', name: 'European Union', strategy: 'EU Cybersecurity Strategy for the Digital Decade', date: '2020-12-16', ver: '2020', objectives: ['Achieve cyber resilience across the EU', 'Build operational capacity to prevent, deter and respond to cyber threats', 'Advance a global and open cyberspace through cooperation', 'Strengthen the NIS Directive framework (NIS2)', 'Establish an EU-wide Cyber Shield of Security Operations Centres', 'Create a Joint Cyber Unit for operational cooperation', 'Secure 5G and next-generation networks', 'Develop EU cyber defence policy framework'], authority: 'European Commission / ENISA (EU Agency for Cybersecurity)', budget: 'EUR 4.5 billion investment target', url: 'https://digital-strategy.ec.europa.eu/en/policies/cybersecurity-strategy' },
   ];
 
   const insertMany = db.transaction(() => {
