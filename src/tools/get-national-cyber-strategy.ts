@@ -1,4 +1,5 @@
 import type Database from 'better-sqlite3';
+import { buildCitation } from '../citation-universal.js';
 
 interface Args {
   country_code?: string;
@@ -33,8 +34,16 @@ export function getNationalCyberStrategy(db: Database.Database, args: Args) {
 
   const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get() as any;
 
+  const _citation = buildCitation(
+    `${strategy.country_name} Cybersecurity Strategy`,
+    `${strategy.country_name} National Cybersecurity Strategy`,
+    'get_national_cyber_strategy',
+    args.country_code ? { country_code: args.country_code.toUpperCase() } : { country_name: args.country_name! },
+  );
+
   return {
     strategy,
+    _citation,
     _meta: {
       disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
       data_source: 'Ansvar International Cybersecurity Law Database',
