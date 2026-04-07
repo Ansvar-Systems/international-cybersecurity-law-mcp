@@ -1,4 +1,5 @@
 import type Database from 'better-sqlite3';
+import { buildCitation } from '../citation-universal.js';
 
 interface Args {
   source_id: number;
@@ -34,8 +35,16 @@ export function getTreatyArticle(db: Database.Database, args: Args) {
 function formatResult(db: Database.Database, article: any) {
   const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get() as any;
 
+  const _citation = buildCitation(
+    `${article.source_title} Article ${article.article_number}`,
+    `Article ${article.article_number}${article.title ? ` — ${article.title}` : ''}, ${article.source_title}`,
+    'get_treaty_article',
+    { source_id: String(article.source_id), article_number: article.article_number },
+  );
+
   return {
     article,
+    _citation,
     _meta: {
       disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
       data_source: 'Ansvar International Cybersecurity Law Database',
