@@ -1,4 +1,5 @@
 import type Database from 'better-sqlite3';
+import { buildCitation } from '../citation-universal.js';
 
 interface Args {
   query?: string;
@@ -25,9 +26,19 @@ export function getExportControls(db: Database.Database, args: Args) {
 
   const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get() as any;
 
+  const _citations = (results as Array<Record<string, unknown>>).map((r) =>
+    buildCitation(
+      `${r.regime as string} ${r.control_list_number as string}`,
+      (r.item_description as string) || `${r.regime as string} ${r.control_list_number as string}`,
+      'get_export_controls',
+      { regime: r.regime as string },
+    ),
+  );
+
   return {
     results,
     count: results.length,
+    _citations,
     _meta: {
       disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
       data_source: 'Ansvar International Cybersecurity Law Database',
