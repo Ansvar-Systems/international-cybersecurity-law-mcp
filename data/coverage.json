@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-04-09",
+  "sources": [
+    {
+      "name": "Budapest Convention on Cybercrime",
+      "type": "treaty",
+      "item_count": 48,
+      "last_updated": "2001-11-23",
+      "notes": "Full text (ETS 185)"
+    },
+    {
+      "name": "UN Convention against Cybercrime",
+      "type": "treaty",
+      "item_count": 62,
+      "last_updated": "2024-08-09",
+      "notes": "Full text"
+    },
+    {
+      "name": "Tallinn Manual 2.0",
+      "type": "manual",
+      "item_count": 154,
+      "last_updated": "2017-02-01",
+      "notes": "Summaries only — Cambridge University Press copyright"
+    },
+    {
+      "name": "UN GGE 2015 Consensus Norms",
+      "type": "norms",
+      "item_count": 11,
+      "last_updated": "2015-07-22",
+      "notes": "Full descriptions (A/70/174)"
+    },
+    {
+      "name": "OEWG 2021/2023 Reports",
+      "type": "norms",
+      "item_count": 4,
+      "last_updated": "2023-07-11",
+      "notes": "Key outcomes"
+    },
+    {
+      "name": "Paris Call for Trust and Security",
+      "type": "declaration",
+      "item_count": 9,
+      "last_updated": "2018-11-12",
+      "notes": "Full text of 9 principles"
+    },
+    {
+      "name": "NATO Cyber Defence Policy",
+      "type": "policy",
+      "item_count": 12,
+      "last_updated": "2023-07-11",
+      "notes": "Key provisions summarized (2014–2023)"
+    },
+    {
+      "name": "EU Cyber Diplomacy Toolbox",
+      "type": "policy",
+      "item_count": 10,
+      "last_updated": "2023-05-16",
+      "notes": "Framework + sanctions regime (2017–2023)"
+    },
+    {
+      "name": "US EO 14028 — Improving the Nation's Cybersecurity",
+      "type": "executive_order",
+      "item_count": 11,
+      "last_updated": "2021-05-12",
+      "notes": "Key sections"
+    },
+    {
+      "name": "US EO 13800 — Strengthening Federal Cybersecurity",
+      "type": "executive_order",
+      "item_count": 8,
+      "last_updated": "2017-05-11",
+      "notes": "Key sections"
+    },
+    {
+      "name": "CISA Act 2018",
+      "type": "executive_order",
+      "item_count": 5,
+      "last_updated": "2018-11-16",
+      "notes": "Key provisions"
+    },
+    {
+      "name": "Wassenaar Arrangement — Category 5 Part 2",
+      "type": "export_controls",
+      "item_count": 15,
+      "last_updated": "2023-12-06",
+      "notes": "Control descriptions + participating states"
+    },
+    {
+      "name": "National Cybersecurity Strategies",
+      "type": "national_strategy",
+      "item_count": 54,
+      "last_updated": "2024-01-01",
+      "notes": "50+ countries: US, UK, DE, FR, NL, SE, FI, NO, DK, AU, NZ, CA, JP, KR, SG, IL, EE, LT, LV, PL, CZ, RO, BG, HR, SK, SI, HU, AT, BE, IE, LU, PT, ES, IT, GR, CY, MT, CH, IN, BR, ZA, KE, NG, GH, EG, SA, AE, QA, TW, MY, ID, TH, VN, PH"
+    }
+  ]
+}
