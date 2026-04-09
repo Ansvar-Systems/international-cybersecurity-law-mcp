@@ -37,14 +37,22 @@ export function compareNationalStrategies(db: Database.Database, args: Args) {
 
   const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get() as any;
 
+  const comparisonWithCitation = strategies.map((s: any) => ({
+    ...s,
+    _citation: {
+      canonical_ref: `National Cybersecurity Strategy — ${s.country_name} (${s.country_code})`,
+      lookup: { tool: 'get_national_cyber_strategy', args: { country_code: s.country_code } },
+    },
+  }));
+
   return {
-    comparison: strategies,
+    comparison: comparisonWithCitation,
     countries_found: strategies.length,
     countries_missing: missing,
     _meta: {
       disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
       data_source: 'Ansvar International Cybersecurity Law Database',
-      freshness: metadata?.value ?? 'unknown',
+      data_age: metadata?.value ?? 'unknown',
     },
   };
 }
