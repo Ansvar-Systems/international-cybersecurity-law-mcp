@@ -37,7 +37,7 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: international-cybersecurity-law-mcp
+  IMAGE_NAME: intl-cybersecurity-law-mcp
 
 permissions:
   contents: read
