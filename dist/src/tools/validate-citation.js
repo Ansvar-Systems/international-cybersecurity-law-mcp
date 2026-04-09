@@ -33,10 +33,11 @@ export function validateCitation(db, args) {
             valid: false,
             parsed: null,
             error: `Could not parse citation: "${citation}". Expected format: "Article N, Source Name" or "Rule N, Source Name"`,
+            _error_type: 'parse_error',
             _meta: {
                 disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
                 data_source: 'Ansvar International Cybersecurity Law Database',
-                freshness: 'unknown',
+                data_age: 'unknown',
             },
         };
     }
@@ -51,10 +52,11 @@ export function validateCitation(db, args) {
             parsed: { article_number: articleNum, source_reference: sourceRef },
             error: `Source not found: "${sourceRef}"`,
             available_sources: db.prepare('SELECT short_title FROM sources ORDER BY short_title').all(),
+            _error_type: 'not_found',
             _meta: {
                 disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
                 data_source: 'Ansvar International Cybersecurity Law Database',
-                freshness: 'unknown',
+                data_age: 'unknown',
             },
         };
     }
@@ -90,10 +92,11 @@ export function validateCitation(db, args) {
             error: `Article "${articleNum}" not found in "${source.short_title}"`,
             available_articles: availableArticles,
             source_status: source.status,
+            _error_type: 'not_found',
             _meta: {
                 disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
                 data_source: 'Ansvar International Cybersecurity Law Database',
-                freshness: metadata?.value ?? 'unknown',
+                data_age: metadata?.value ?? 'unknown',
             },
         };
     }
@@ -116,7 +119,7 @@ export function validateCitation(db, args) {
         _meta: {
             disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
             data_source: 'Ansvar International Cybersecurity Law Database',
-            freshness: metadata?.value ?? 'unknown',
+            data_age: metadata?.value ?? 'unknown',
         },
     };
 }

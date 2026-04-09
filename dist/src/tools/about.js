@@ -33,7 +33,7 @@ export function about(db) {
         _meta: {
             disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
             data_source: 'Ansvar International Cybersecurity Law Database',
-            freshness: metadata['build_date'] ?? 'unknown',
+            data_age: metadata['build_date'] ?? 'unknown',
         },
     };
 }
