@@ -1,0 +1,34 @@
+name: Check Data Freshness
+
+on:
+  schedule:
+    # Run weekly on Monday at 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check corpus freshness
+        run: |
+          echo "Checking international cybersecurity law corpus for updates..."
+          echo ""
+          echo "Corpus sources (frozen — no automated upstream):"
+          echo "  - Budapest Convention on Cybercrime (ETS 185, 2001) — stable treaty text"
+          echo "  - UN Convention against Cybercrime (2024) — stable treaty text"
+          echo "  - Tallinn Manual 2.0 (2017) — stable (Cambridge UP)"
+          echo "  - UN GGE 2015/2021 norms — stable consensus documents"
+          echo "  - Paris Call principles (2018) — stable"
+          echo "  - NATO Cyber Defence Policy provisions — monitor nato.int for updates"
+          echo "  - EU Cyber Diplomacy Toolbox — monitor EUR-Lex for updates"
+          echo "  - US Executive Orders — monitor Federal Register for new EOs"
+          echo "  - Wassenaar Arrangement Cat. 5 Part 2 — monitor wassenaar.org for annual updates"
+          echo "  - National strategies (50+ countries) — monitor national gov sites"
+          echo ""
+          echo "Result: No automated source comparison available for this frozen corpus."
+          echo "Manual review recommended for: Wassenaar (annual), national strategies (as published)."
+          echo "Status: no-new-content (frozen corpus)"
