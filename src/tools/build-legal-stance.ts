@@ -51,20 +51,36 @@ export function buildLegalStance(db: Database.Database, args: Args) {
 
   const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get() as any;
 
+  const addArticleCitation = (arr: any[]) => arr.map(r => ({
+    ...r,
+    _citation: {
+      canonical_ref: `${r.source_title}, ${r.article_number}`,
+      lookup: { tool: 'get_treaty_article', args: { source_id: r.source_id, article_number: r.article_number } },
+    },
+  }));
+
+  const strategiesWithCitation = (strategies as any[]).map(s => ({
+    ...s,
+    _citation: {
+      canonical_ref: `National Cybersecurity Strategy — ${s.country_name} (${s.country_code})`,
+      lookup: { tool: 'get_national_cyber_strategy', args: { country_code: s.country_code } },
+    },
+  }));
+
   return {
     query: args.query,
-    treaty_provisions: byType['treaty'] ?? [],
-    manual_rules: byType['manual'] ?? [],
-    policy_provisions: byType['policy'] ?? [],
-    executive_orders: byType['executive_order'] ?? [],
-    declarations: byType['declaration'] ?? [],
+    treaty_provisions: addArticleCitation(byType['treaty'] ?? []),
+    manual_rules: addArticleCitation(byType['manual'] ?? []),
+    policy_provisions: addArticleCitation(byType['policy'] ?? []),
+    executive_orders: addArticleCitation(byType['executive_order'] ?? []),
+    declarations: addArticleCitation(byType['declaration'] ?? []),
     relevant_norms: norms,
-    relevant_strategies: strategies,
+    relevant_strategies: strategiesWithCitation,
     total_results: articles.length + norms.length + strategies.length,
     _meta: {
       disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
       data_source: 'Ansvar International Cybersecurity Law Database',
-      freshness: metadata?.value ?? 'unknown',
+      data_age: metadata?.value ?? 'unknown',
     },
   };
 }

@@ -39,11 +39,25 @@ function createMCPServer() {
         content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
       };
     } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      let data_age = 'unknown';
+      try {
+        const meta = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get() as any;
+        data_age = meta?.value ?? 'unknown';
+      } catch { /* ignore */ }
       return {
         content: [
           {
             type: 'text',
-            text: `Error: ${error instanceof Error ? error.message : String(error)}`,
+            text: JSON.stringify({
+              error: message,
+              _error_type: 'tool_error',
+              _meta: {
+                disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
+                data_source: 'Ansvar International Cybersecurity Law Database',
+                data_age,
+              },
+            }, null, 2),
           },
         ],
         isError: true,

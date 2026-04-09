@@ -14,6 +14,7 @@ export function listSources(db: Database.Database) {
   const exportControlsTotal = (db.prepare('SELECT COUNT(*) as c FROM export_controls').get() as any).c;
 
   const metadata = db.prepare('SELECT * FROM db_metadata').all();
+  const buildDate = (metadata as any[]).find((m: any) => m.key === 'build_date')?.value ?? 'unknown';
 
   return {
     sources,
@@ -25,5 +26,10 @@ export function listSources(db: Database.Database) {
       export_controls: exportControlsTotal,
     },
     metadata,
+    _meta: {
+      disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
+      data_source: 'Ansvar International Cybersecurity Law Database',
+      data_age: buildDate,
+    },
   };
 }

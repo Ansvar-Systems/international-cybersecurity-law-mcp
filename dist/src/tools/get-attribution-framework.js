@@ -41,15 +41,29 @@ export function getAttributionFramework(db, args) {
     `).all();
     }
     const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get();
+    const rulesWithCitation = rules.map(r => ({
+        ...r,
+        _citation: {
+            canonical_ref: `${r.source_title}, ${r.article_number}`,
+            lookup: { tool: 'get_treaty_article', args: { source_id: r.source_id, article_number: r.article_number } },
+        },
+    }));
+    const normsWithCitation = norms.map(n => ({
+        ...n,
+        _citation: {
+            canonical_ref: `${n.source_title}, ${n.norm_number ?? n.title}`,
+            lookup: { tool: 'map_cyber_norms', args: { category: n.category } },
+        },
+    }));
     return {
-        rules,
-        norms,
+        rules: rulesWithCitation,
+        norms: normsWithCitation,
         rules_count: rules.length,
         norms_count: norms.length,
         _meta: {
             disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
             data_source: 'Ansvar International Cybersecurity Law Database',
-            freshness: metadata?.value ?? 'unknown',
+            data_age: metadata?.value ?? 'unknown',
         },
     };
 }

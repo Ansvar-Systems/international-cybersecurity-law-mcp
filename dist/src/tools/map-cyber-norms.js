@@ -17,14 +17,21 @@ export function mapCyberNorms(db, args) {
     sql += ' ORDER BY cn.source_id, cn.norm_number';
     const norms = db.prepare(sql).all(...params);
     const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get();
+    const normsWithCitation = norms.map(n => ({
+        ...n,
+        _citation: {
+            canonical_ref: `${n.source_title}, ${n.norm_number ?? n.title}`,
+            lookup: { tool: 'map_cyber_norms', args: { category: n.category } },
+        },
+    }));
     return {
-        norms,
+        norms: normsWithCitation,
         count: norms.length,
         categories_available: ['sovereignty', 'due_diligence', 'cooperation', 'human_rights', 'critical_infrastructure', 'confidence_building', 'capacity_building', 'international_law'],
         _meta: {
             disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
             data_source: 'Ansvar International Cybersecurity Law Database',
-            freshness: metadata?.value ?? 'unknown',
+            data_age: metadata?.value ?? 'unknown',
         },
     };
 }

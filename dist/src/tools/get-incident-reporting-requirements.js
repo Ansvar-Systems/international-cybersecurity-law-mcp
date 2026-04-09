@@ -14,14 +14,21 @@ export function getIncidentReportingRequirements(db, args) {
     LIMIT ?
   `).all(searchQuery, limit);
     const metadata = db.prepare("SELECT value FROM db_metadata WHERE key = 'build_date'").get();
+    const resultsWithCitation = results.map(r => ({
+        ...r,
+        _citation: {
+            canonical_ref: `${r.source_title}, ${r.article_number}`,
+            lookup: { tool: 'get_treaty_article', args: { source_id: r.source_id, article_number: r.article_number } },
+        },
+    }));
     return {
-        results,
+        results: resultsWithCitation,
         count: results.length,
         search_scope: 'All treaties, conventions, and manuals',
         _meta: {
             disclaimer: 'Cybersecurity law data is for reference purposes only. Tallinn Manual content is summarized, not verbatim (Cambridge University Press). Treaties may have reservations by individual states. Not legal advice.',
             data_source: 'Ansvar International Cybersecurity Law Database',
-            freshness: metadata?.value ?? 'unknown',
+            data_age: metadata?.value ?? 'unknown',
         },
     };
 }
